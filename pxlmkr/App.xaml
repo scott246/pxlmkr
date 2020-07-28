@@ -4,6 +4,26 @@
              xmlns:local="clr-namespace:pxlmkr"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+		<ResourceDictionary>
+
+			<Color x:Key="AppBackgroundColorCode">#ff333333</Color>
+			<Color x:Key="ControlBackgroundColorCode">#33ffffff</Color>
+			<Color x:Key="ButtonBackgroundColorCode">#55ffffff</Color>
+			<Color x:Key="ControlBorderColorCode">#66ffffff</Color>
+			<Color x:Key="AppForegroundColorCode">#ffffffff</Color>
+			<Color x:Key="ControlForegroundColorCode">#ccffffff</Color>
+			<Color x:Key="WarningTextColorCode">#ffff0000</Color>
+			<Color x:Key="AccentColorCode">#99ffa500</Color>
+
+			<SolidColorBrush x:Key="AppBackgroundColor" Color="{StaticResource AppBackgroundColorCode}"/>
+            <SolidColorBrush x:Key="ControlBackgroundColor" Color="{StaticResource ControlBackgroundColorCode}"/>
+			<SolidColorBrush x:Key="ButtonBackgroundColor" Color="{StaticResource ButtonBackgroundColorCode}"/>
+			<SolidColorBrush x:Key="ControlBorderColor" Color="{StaticResource ControlBorderColorCode}"/>
+            <SolidColorBrush x:Key="AppForegroundColor" Color="{StaticResource AppForegroundColorCode}"/>
+            <SolidColorBrush x:Key="ControlForegroundColor" Color="{StaticResource ControlForegroundColorCode}"/>
+            <SolidColorBrush x:Key="WarningTextColor" Color="{StaticResource WarningTextColorCode}"/>
+            <SolidColorBrush x:Key="AccentColor" Color="{StaticResource AccentColorCode}"/>
+
+		</ResourceDictionary>
     </Application.Resources>
 </Application>

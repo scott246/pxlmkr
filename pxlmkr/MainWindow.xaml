@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:pxlmkr"
         mc:Ignorable="d"
         Title="pxlmkr" Height="450" Width="800">
-	<Grid>
+	<Grid Background="{StaticResource AppBackgroundColor}">
 		<DockPanel HorizontalAlignment="Left" Height="419" LastChildFill="True" VerticalAlignment="Top" Width="792">
-			<StatusBar DockPanel.Dock="Bottom" Height="30" />
+			<StatusBar DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}"/>
 			<Menu DockPanel.Dock="Top">
 				<MenuItem Header="File">
 					<MenuItem Header="New"/>
@@ -46,8 +46,12 @@
 					<MenuItem Header="About"/>
 				</MenuItem>
 			</Menu>
-			<ToolBarTray DockPanel.Dock="Left" Width="50" />
-			<StackPanel DockPanel.Dock="Right" Width="200"/>
+			<StackPanel DockPanel.Dock="Left" Width="50" Background="{StaticResource ControlBackgroundColor}">
+				<Button Width="40" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="resources/flip_horizontal_26px.png"/>
+				</Button>
+			</StackPanel>
+			<StackPanel DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}"/>
 			<Grid />
 		</DockPanel>
 
