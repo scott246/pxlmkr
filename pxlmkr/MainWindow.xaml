@@ -1,0 +1,55 @@
+﻿<Window x:Class="pxlmkr.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pxlmkr"
+        mc:Ignorable="d"
+        Title="pxlmkr" Height="450" Width="800">
+	<Grid>
+		<DockPanel HorizontalAlignment="Left" Height="419" LastChildFill="True" VerticalAlignment="Top" Width="792">
+			<StatusBar DockPanel.Dock="Bottom" Height="30" />
+			<Menu DockPanel.Dock="Top">
+				<MenuItem Header="File">
+					<MenuItem Header="New"/>
+					<MenuItem Header="Open"/>
+					<MenuItem Header="Save"/>
+					<MenuItem Header="Save As"/>
+					<MenuItem Header="Export"/>
+					<Separator/>
+					<MenuItem Header="Preferences"/>
+					<Separator/>
+					<MenuItem Header="Exit"/>
+				</MenuItem>
+				<MenuItem Header="Edit">
+					<MenuItem Header="Undo"/>
+					<MenuItem Header="Redo"/>
+					<MenuItem Header="Properties"/>
+					<Separator/>
+					<MenuItem Header="Fill"/>
+					<MenuItem Header="Replace Color"/>
+					<MenuItem Header="Clone"/>
+					<MenuItem Header="Flip">
+						<MenuItem Header="Vertical"/>
+						<MenuItem Header="Horizontal"/>
+					</MenuItem>
+					<MenuItem Header="Rotate">
+						<MenuItem Header="90"/>
+						<MenuItem Header="180"/>
+						<MenuItem Header="270"/>
+					</MenuItem>
+					<MenuItem Header="Crop"/>
+					<MenuItem Header="Clear"/>
+				</MenuItem>
+				<MenuItem Header="Help">
+					<MenuItem Header="Help"/>
+					<MenuItem Header="About"/>
+				</MenuItem>
+			</Menu>
+			<ToolBarTray DockPanel.Dock="Left" Width="50" />
+			<StackPanel DockPanel.Dock="Right" Width="200"/>
+			<Grid />
+		</DockPanel>
+
+	</Grid>
+</Window>
