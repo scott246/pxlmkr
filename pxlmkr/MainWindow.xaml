@@ -8,7 +8,6 @@
         Title="pxlmkr" Height="450" Width="800">
 	<Grid Background="{StaticResource AppBackgroundColor}">
 		<DockPanel HorizontalAlignment="Left" Height="419" LastChildFill="True" VerticalAlignment="Top" Width="792">
-			<StatusBar DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}"/>
 			<Menu DockPanel.Dock="Top">
 				<MenuItem Header="File">
 					<MenuItem Header="New"/>
@@ -46,12 +45,41 @@
 					<MenuItem Header="About"/>
 				</MenuItem>
 			</Menu>
-			<StackPanel DockPanel.Dock="Left" Width="50" Background="{StaticResource ControlBackgroundColor}">
-				<Button Width="40" Background="{StaticResource ControlBackgroundColor}">
-					<Image Source="resources/flip_horizontal_26px.png"/>
+			<StackPanel DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}"/>
+			<DockPanel DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}">
+				<Label Content="Help Text" DockPanel.Dock="Left" HorizontalAlignment="Left" Foreground="{StaticResource ControlForegroundColor}"/>
+				<Label Content="X : Y" DockPanel.Dock="Right" HorizontalAlignment="Right" Foreground="{StaticResource ControlForegroundColor}"/>
+			</DockPanel>
+			<StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="50" Background="{StaticResource ControlBackgroundColor}">
+				<Rectangle Height="5"/>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_paint_brush_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_rectangular_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_eraser_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_fill_color_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_color_dropper_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_line_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_ellipse_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_type_26px.png" />
+				</Button>
+				<Button Width="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+					<Image Source="/Resources/icons8_crop_26px.png" />
 				</Button>
 			</StackPanel>
-			<StackPanel DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}"/>
 			<Grid />
 		</DockPanel>
 
