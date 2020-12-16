@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pxlmkr"
         mc:Ignorable="d"
-        Title="pxlmkr" Height="450" Width="800">
+        Title="pxlmkr">
 	<Grid Background="{StaticResource AppBackgroundColor}">
 		<DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 			<Menu x:Name="TopMenuBar" DockPanel.Dock="Top">
@@ -81,7 +81,11 @@
 				</Button>
 			</StackPanel>
 			<Grid>
-				<Canvas x:Name="Canvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Background="White"/>
+				<Canvas x:Name="Canvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+					<Canvas.Background>
+						<ImageBrush TileMode="Tile" ImageSource="/Resources/Transparency500.png" Stretch="Uniform" ViewportUnits="Absolute" Viewport="0,0,250,250"/>
+					</Canvas.Background>
+				</Canvas>
 			</Grid>
 		</DockPanel>
 

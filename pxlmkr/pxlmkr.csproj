@@ -188,5 +188,8 @@
   <ItemGroup>
     <Resource Include="Resources\icons8_crop_26px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Transparency500.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
