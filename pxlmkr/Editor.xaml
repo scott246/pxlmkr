@@ -48,7 +48,7 @@
 			<StackPanel x:Name="DetailsPanel" DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}"/>
 			<DockPanel x:Name="StatusPanel" DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}">
 				<Label x:Name="HelpTextLabel" Content="Help Text" DockPanel.Dock="Left" HorizontalAlignment="Left" Foreground="{StaticResource ControlForegroundColor}"/>
-				<Label x:Name="CursorPositionLabel" Content="X : Y" DockPanel.Dock="Right" HorizontalAlignment="Right" Foreground="{StaticResource ControlForegroundColor}"/>
+				<Label x:Name="CursorPositionLabel" Content="1 : 1" DockPanel.Dock="Right" HorizontalAlignment="Right" Foreground="{StaticResource ControlForegroundColor}"/>
 			</DockPanel>
 			<StackPanel x:Name="ToolsPanel" DockPanel.Dock="Left" Orientation="Vertical" Width="50" Background="{StaticResource ControlBackgroundColor}">
 				<Rectangle Height="5"/>
@@ -81,7 +81,7 @@
 				</Button>
 			</StackPanel>
 			<Grid>
-				<Canvas x:Name="PixelCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Width="300" Height="300" Loaded="PixelCanvas_Loaded" MouseDown="PixelCanvas_MouseDown">
+				<Canvas x:Name="PixelCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Width="300" Height="300" Loaded="PixelCanvas_Loaded" MouseDown="PixelCanvas_MouseDown" MouseMove="PixelCanvas_MouseMove">
 					<Canvas.Background>
 						<ImageBrush TileMode="Tile" Opacity="0.2" ImageSource="/Resources/Transparency500.png" Stretch="Uniform" ViewportUnits="Absolute" Viewport="0,0,100,100"/>
 					</Canvas.Background>

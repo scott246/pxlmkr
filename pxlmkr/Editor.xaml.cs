@@ -20,20 +20,31 @@ namespace pxlmkr
 	/// </summary>
 	public partial class Editor : Window
 	{
-		public Editor()
+        int rows;
+        int cols;
+        double canvasHeight;
+        double canvasWidth;
+        double rowHeight;
+        double colWidth;
+
+        public Editor()
 		{
 			InitializeComponent();
+            CalculateGridInfo();
+		}
+
+        private void CalculateGridInfo()
+		{
+            rows = 16;
+            cols = 16;
+            canvasHeight = PixelCanvas.ActualHeight;
+            canvasWidth = PixelCanvas.ActualWidth;
+            rowHeight = canvasHeight / rows;
+            colWidth = canvasWidth / cols;
 		}
 
         private void InitializeCanvasGridLines()
-		{
-            int rows = 16;
-            int cols = 16;
-            double canvasHeight = PixelCanvas.ActualHeight;
-            double canvasWidth = PixelCanvas.ActualWidth;
-            double rowHeight = canvasHeight / rows;
-            double colWidth = canvasWidth / cols;
-
+        {
             for (int curRow = 0; curRow <= rows; curRow++)
 			{
                 Line gridLine = new Line
@@ -63,13 +74,30 @@ namespace pxlmkr
 		}
 
 		private void PixelCanvas_Loaded(object sender, RoutedEventArgs e)
-		{
+        {
+            CalculateGridInfo();
             InitializeCanvasGridLines();
         }
 
 		private void PixelCanvas_MouseDown(object sender, MouseButtonEventArgs e)
 		{
 
+		}
+
+        private void PixelCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            Point mousePos = Mouse.GetPosition(PixelCanvas);
+            int rowPos = (int)(mousePos.X / rowHeight) + 1;
+            if (rowPos > rows)
+            {
+                rowPos = rows;
+            }
+            int colPos = (int)(mousePos.Y / colWidth) + 1;
+            if (colPos > cols)
+			{
+                colPos = cols;
+			}
+            CursorPositionLabel.Content = rowPos + " : " + colPos;
 		}
 	}
 }
