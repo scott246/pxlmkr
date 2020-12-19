@@ -81,7 +81,7 @@
 				</Button>
 			</StackPanel>
 			<Grid>
-				<Canvas x:Name="PixelCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Loaded="PixelCanvas_Loaded" SizeChanged="PixelCanvas_SizeChanged">
+				<Canvas x:Name="PixelCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Width="300" Height="300" Loaded="PixelCanvas_Loaded" MouseDown="PixelCanvas_MouseDown">
 					<Canvas.Background>
 						<ImageBrush TileMode="Tile" Opacity="0.2" ImageSource="/Resources/Transparency500.png" Stretch="Uniform" ViewportUnits="Absolute" Viewport="0,0,100,100"/>
 					</Canvas.Background>
