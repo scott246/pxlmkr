@@ -30,7 +30,6 @@ namespace pxlmkr
         public Editor()
 		{
 			InitializeComponent();
-            CalculateGridInfo();
 		}
 
         private void CalculateGridInfo()
@@ -54,7 +53,7 @@ namespace pxlmkr
                     Y1 = rowHeight * curRow,
                     Y2 = rowHeight * curRow,
                     Stroke = Brushes.DarkGray,
-                    StrokeThickness = 2
+                    StrokeThickness = 1
 				};
                 PixelCanvas.Children.Add(gridLine);
             }
@@ -67,11 +66,50 @@ namespace pxlmkr
                     Y1 = 0,
                     Y2 = canvasHeight,
                     Stroke = Brushes.DarkGray,
-                    StrokeThickness = 2
+                    StrokeThickness = 1
                 };
                 PixelCanvas.Children.Add(gridLine);
             }
 		}
+        
+        private void PaintCurrentPixel()
+		{
+            Point mousePos = Mouse.GetPosition(PixelCanvas);
+            int rowPos = (int)(mousePos.X / rowHeight);
+            int colPos = (int)(mousePos.Y / colWidth);
+            double pixelTopPos = colPos * colWidth;
+            double pixelLeftPos = rowPos * rowHeight;
+
+            // paint if LMB down
+            if (Mouse.LeftButton == MouseButtonState.Pressed)
+            {
+                if (Mouse.DirectlyOver.GetType() == typeof(Rectangle))
+                {
+                    Rectangle paintedPixel = (Rectangle)Mouse.DirectlyOver;
+                    paintedPixel.Fill = new SolidColorBrush(Colors.Red);
+                }
+                else
+                {
+                    Rectangle pixelToPaint = new Rectangle
+                    {
+                        Width = colWidth,
+                        Height = rowHeight,
+                        Fill = new SolidColorBrush(Colors.Black)
+                    };
+                    Canvas.SetLeft(pixelToPaint, pixelLeftPos);
+                    Canvas.SetTop(pixelToPaint, pixelTopPos);
+                    PixelCanvas.Children.Add(pixelToPaint);
+                }
+            }
+
+            else if (Mouse.RightButton == MouseButtonState.Pressed)
+            {
+                if (Mouse.DirectlyOver.GetType() == typeof(Rectangle))
+                {
+                    PixelCanvas.Children.Remove((UIElement)Mouse.DirectlyOver);
+                }
+            }
+        }
 
 		private void PixelCanvas_Loaded(object sender, RoutedEventArgs e)
         {
@@ -81,19 +119,22 @@ namespace pxlmkr
         }
 
 		private void PixelCanvas_MouseDown(object sender, MouseButtonEventArgs e)
-		{
-            // paint
-		}
+        {
+            PaintCurrentPixel();
+        }
 
         private void PixelCanvas_MouseMove(object sender, MouseEventArgs e)
         {
+            // update cursor position
             Point mousePos = Mouse.GetPosition(PixelCanvas);
-            int rowPos = (int)(mousePos.X / rowHeight) + 1;
-            int colPos = (int)(mousePos.Y / colWidth) + 1;
+            int rowPos = (int)(mousePos.X / rowHeight);
+            int colPos = (int)(mousePos.Y / colWidth);
             if (rowPos > rows) rowPos = rows;
             if (colPos > cols) colPos = cols;
-            CursorPositionLabel.Content = rowPos + " : " + colPos;
-		}
+            CursorPositionLabel.Content = (rowPos + 1) + " : " + (colPos + 1);
+
+            PaintCurrentPixel();
+        }
 
 		private void ProjectSizeLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
