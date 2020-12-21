@@ -48,35 +48,37 @@
 			<StackPanel x:Name="DetailsPanel" DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}"/>
 			<DockPanel x:Name="StatusPanel" DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}">
 				<Label x:Name="HelpTextLabel" Content="Help Text" DockPanel.Dock="Left" HorizontalAlignment="Left" Foreground="{StaticResource ControlForegroundColor}"/>
-				<Label x:Name="CursorPositionLabel" Content="1 : 1" DockPanel.Dock="Right" HorizontalAlignment="Right" Foreground="{StaticResource ControlForegroundColor}"/>
+				<Label x:Name="CursorPositionLabel" Content="1 : 1" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeave="ClearHelpText" MouseEnter="CursorPositionLabel_MouseEnter"/>
+				<Label x:Name="PixelSizeLabel" Content="16px" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeftButtonDown="PixelSizeLabel_MouseLeftButtonDown" MouseEnter="PixelSizeLabel_MouseEnter" MouseLeave="ClearHelpText"/>
+				<Label x:Name="ProjectSizeLabel" Content="16 x 16" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeftButtonDown="ProjectSizeLabel_MouseLeftButtonDown" MouseEnter="ProjectSizeLabel_MouseEnter" MouseLeave="ClearHelpText"/>
 			</DockPanel>
 			<StackPanel x:Name="ToolsPanel" DockPanel.Dock="Left" Orientation="Vertical" Width="50" Background="{StaticResource ControlBackgroundColor}">
 				<Rectangle Height="5"/>
-				<Button x:Name="PaintToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="PaintToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="PaintToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_paint_brush_26px.png" />
 				</Button>
-				<Button x:Name="SelectToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="SelectToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="SelectToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_rectangular_26px.png" />
 				</Button>
-				<Button x:Name="EraserToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="EraserToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="EraserToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_eraser_26px.png" />
 				</Button>
-				<Button x:Name="FillToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="FillToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="FillToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_fill_color_26px.png" />
 				</Button>
-				<Button x:Name="EyedropperToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="EyedropperToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="EyedropperToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_color_dropper_26px.png" />
 				</Button>
-				<Button x:Name="LineToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="LineToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="LineToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_line_26px.png" />
 				</Button>
-				<Button x:Name="ShapeToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="ShapeToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="ShapeToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_ellipse_26px.png" />
 				</Button>
-				<Button x:Name="TextToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="TextToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="TextToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_type_26px.png" />
 				</Button>
-				<Button x:Name="CropToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}">
+				<Button x:Name="CropToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="CropToolButton_MouseEnter">
 					<Image Source="/Resources/icons8_crop_26px.png" />
 				</Button>
 			</StackPanel>
