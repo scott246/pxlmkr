@@ -1,4 +1,5 @@
-﻿using System;
+﻿using pxlmkr.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -151,69 +152,74 @@ namespace pxlmkr
             HelpTextLabel.Content = newHelpText;
 		}
 
-		private void PixelSizeLabel_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Project pixel size (in screen pixels), click to change");
-		}
-
-		private void ProjectSizeLabel_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Project dimensions, click to change");
-		}
-
         private void ClearHelpText(object sender, MouseEventArgs e)
         {
             UpdateHelpText("");
         }
 
-		private void CursorPositionLabel_MouseEnter(object sender, MouseEventArgs e)
+		private void DescribeControl(object sender, MouseEventArgs e)
 		{
-            UpdateHelpText("Position (x : y)");
+            UpdateHelpText(EditorUtils.GetControlDescription(((Control)sender).Name));
 		}
 
-		private void PaintToolButton_MouseEnter(object sender, MouseEventArgs e)
+		private void BrushSizeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
 		{
-            UpdateHelpText("Paint tool");
+            // change brush size
+            BrushSizeLabel.Content = BrushSizeSlider.Value;
 		}
 
-		private void SelectToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Select tool");
-		}
-
-		private void EraserToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Eraser tool");
-		}
-
-		private void FillToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Fill tool");
+        private void MenuItemClicked(object sender, RoutedEventArgs e)
+        {
+            switch (((MenuItem)sender).Name)
+            {
+                case "NewMenuItem":
+                    break;
+                case "OpenMenuItem":
+                    break;
+                case "SaveMenuItem":
+                    break;
+                case "SaveAsMenuItem":
+                    break;
+                case "ExportMenuItem":
+                    break;
+                case "SettingsMenuItem":
+                    break;
+                case "ExitMenuItem":
+                    Application.Current.Shutdown();
+                    break;
+                case "UndoMenuItem":
+                    break;
+                case "RedoMenuItem":
+                    break;
+                case "PropertiesMenuItem":
+                    break;
+                case "FillMenuItem":
+                    break;
+                case "ReplaceMenuItem":
+                    break;
+                case "CloneMenuItem":
+                    break;
+                case "FlipVerticalMenuItem":
+                    break;
+                case "FlipHorizontalMenuItem":
+                    break;
+                case "Rotate90MenuItem":
+                    break;
+                case "Rotate180MenuItem":
+                    break;
+                case "Rotate270MenuItem":
+                    break;
+                case "CropMenuItem":
+                    break;
+                case "ClearMenuItem":
+                    break;
+                case "HelpMenuItem":
+                    break;
+                case "AboutMenuItem":
+                    break;
+                default:
+                    break;
+            }
         }
-
-		private void EyedropperToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Eyedropper tool");
-		}
-
-		private void LineToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Line tool");
-		}
-
-		private void ShapeToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Shape tool");
-		}
-
-		private void TextToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Text tool");
-		}
-
-		private void CropToolButton_MouseEnter(object sender, MouseEventArgs e)
-		{
-            UpdateHelpText("Crop tool");
-		}
-	}
+    }
 }
