@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:pxlmkr"
         mc:Ignorable="d"
+		WindowStartupLocation="CenterScreen"
         Title="pxlmkr" Height="450" Width="800">
 	<Grid Background="{StaticResource AppBackgroundColor}">
 		<DockPanel LastChildFill="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -25,6 +26,13 @@
 					<MenuItem x:Name="AboutMenuItem" Header="About" Click="MenuItemClicked"/>
 				</MenuItem>
 			</Menu>
+			<DockPanel x:Name="StatusPanel" DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}">
+				<Label x:Name="HelpTextLabel" Content="Help Text" DockPanel.Dock="Left" HorizontalAlignment="Left" Foreground="{StaticResource ControlForegroundColor}"/>
+				<Label x:Name="CursorPositionLabel" Content="1 : 1" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="70" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl"/>
+				<Label x:Name="PixelSizeLabel" Content="16 px" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
+				<Label x:Name="ProjectSizeLabel" Content="16 x 16" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="70" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
+				<Label x:Name="ProjectSizeRenderedLabel" Content="256 x 256 px" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="80" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
+			</DockPanel>
 			<StackPanel x:Name="DetailsPanel" DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}">
 				<Grid Margin="10">
 					<Grid.ColumnDefinitions>
@@ -35,12 +43,6 @@
 					<Slider x:Name="BrushSizeSlider" Grid.Column="0" Value="1" IsSnapToTickEnabled="True" TickPlacement="BottomRight" TickFrequency="1" Maximum="16" Minimum="1" Margin="10,0,0,0" VerticalAlignment="Center" MouseLeave="ClearHelpText" MouseEnter="DescribeControl" ValueChanged="BrushSizeSlider_ValueChanged"/>
 				</Grid>
 			</StackPanel>
-			<DockPanel x:Name="StatusPanel" DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}">
-				<Label x:Name="HelpTextLabel" Content="Help Text" DockPanel.Dock="Left" HorizontalAlignment="Left" Foreground="{StaticResource ControlForegroundColor}"/>
-				<Label x:Name="CursorPositionLabel" Content="1 : 1" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl"/>
-				<Label x:Name="PixelSizeLabel" Content="16px" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
-				<Label x:Name="ProjectSizeLabel" Content="16 x 16" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
-			</DockPanel>
 			<StackPanel x:Name="ToolsPanel" DockPanel.Dock="Left" Orientation="Vertical" Width="50" Background="{StaticResource ControlBackgroundColor}">
 				<Rectangle Height="5"/>
 				<Button x:Name="PaintToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource AccentColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
@@ -67,7 +69,7 @@
 				<Button x:Name="ShowHideFramesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
 					<Image Source="/Resources/icons8_showing_video_frames_26px.png" />
 				</Button>
-				<Button x:Name="PreferencesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
+				<Button x:Name="PreferencesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl" Click="ControlButtonClicked">
 					<Image Source="/Resources/icons8_settings_26px.png" />
 				</Button>
 			</StackPanel>

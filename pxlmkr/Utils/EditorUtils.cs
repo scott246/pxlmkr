@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using pxlmkr.Dialogs;
 
 namespace pxlmkr.Utils
 {
@@ -35,12 +36,40 @@ namespace pxlmkr.Utils
                 case "ShowHideFramesToolButton":
                     return "Show/hide frames panel";
                 case "PreferencesToolButton":
-                    return "Project preferences";
+                    return "Project settings";
                 case "BrushSizeSlider":
                     return "Brush size";
                 default:
                     return "";
             }
 		}
+
+        public static void ControlButtonClicked(string name)
+        {
+            switch (name)
+            {
+                case "PaintToolButton":
+                    break;
+                case "SelectToolButton":
+                    break;
+                case "EraserToolButton":
+                    break;
+                case "FillToolButton":
+                    break;
+                case "ShapeToolButton":
+                    break;
+                case "TransformToolButton":
+                    break;
+                case "ShowHideLayersToolButton":
+                    break;
+                case "ShowHideFramesToolButton":
+                    break;
+                case "PreferencesToolButton":
+                    new Settings().ShowDialog();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

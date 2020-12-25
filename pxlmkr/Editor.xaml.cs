@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using pxlmkr.Dialogs;
 
 namespace pxlmkr
 {
@@ -173,6 +174,7 @@ namespace pxlmkr
                 case "ExportMenuItem":
                     break;
                 case "SettingsMenuItem":
+                    new Settings().ShowDialog();
                     break;
                 case "ExitMenuItem":
                     Application.Current.Shutdown();
@@ -185,5 +187,10 @@ namespace pxlmkr
                     break;
             }
         }
-    }
+
+		private void ControlButtonClicked(object sender, RoutedEventArgs e)
+		{
+            EditorUtils.ControlButtonClicked(((Button)sender).Name);
+		}
+	}
 }

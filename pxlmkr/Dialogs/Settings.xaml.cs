@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace pxlmkr.Pages
+namespace pxlmkr.Dialogs
 {
 	/// <summary>
 	/// Interaction logic for Settings.xaml
