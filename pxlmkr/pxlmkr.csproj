@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Dialogs\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\EditorUtils.cs" />
     <Page Include="Editor.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -69,6 +72,10 @@
       <DependentUpon>Editor.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Dialogs\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
