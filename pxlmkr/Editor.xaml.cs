@@ -137,16 +137,6 @@ namespace pxlmkr
             PaintCurrentPixel();
         }
 
-		private void ProjectSizeLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-            // allow project size to be changed
-		}
-
-		private void PixelSizeLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-		{
-            // allow pixel size to be changed
-		}
-
         public void UpdateHelpText(string newHelpText)
 		{
             HelpTextLabel.Content = newHelpText;
@@ -186,32 +176,6 @@ namespace pxlmkr
                     break;
                 case "ExitMenuItem":
                     Application.Current.Shutdown();
-                    break;
-                case "UndoMenuItem":
-                    break;
-                case "RedoMenuItem":
-                    break;
-                case "PropertiesMenuItem":
-                    break;
-                case "FillMenuItem":
-                    break;
-                case "ReplaceMenuItem":
-                    break;
-                case "CloneMenuItem":
-                    break;
-                case "FlipVerticalMenuItem":
-                    break;
-                case "FlipHorizontalMenuItem":
-                    break;
-                case "Rotate90MenuItem":
-                    break;
-                case "Rotate180MenuItem":
-                    break;
-                case "Rotate270MenuItem":
-                    break;
-                case "CropMenuItem":
-                    break;
-                case "ClearMenuItem":
                     break;
                 case "HelpMenuItem":
                     break;

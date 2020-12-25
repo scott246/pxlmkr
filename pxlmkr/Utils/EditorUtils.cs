@@ -15,9 +15,9 @@ namespace pxlmkr.Utils
                 case "CursorPositionLabel":
                     return "Cursor position (x : y)";
                 case "PixelSizeLabel":
-                    return "Project pixel size (in screen pixels), click to change";
+                    return "Project pixel size (in screen pixels)";
                 case "ProjectSizeLabel":
-                    return "Project dimensions, click to change";
+                    return "Project dimensions";
                 case "PaintToolButton":
                     return "Paint tool";
                 case "SelectToolButton":
@@ -26,16 +26,16 @@ namespace pxlmkr.Utils
                     return "Eraser tool";
                 case "FillToolButton":
                     return "Fill tool";
-                case "EyedropperToolButton":
-                    return "Eyedropper tool";
-                case "LineToolButton":
-                    return "Line tool";
                 case "ShapeToolButton":
-                    return "Shape tool";
-                case "TextToolButton":
-                    return "Text tool";
-                case "CropToolButton":
-                    return "Crop tool";
+                    return "Shape tools";
+                case "TransformToolButton":
+                    return "Transforming tools";
+                case "ShowHideLayersToolButton":
+                    return "Show/hide layer panel";
+                case "ShowHideFramesToolButton":
+                    return "Show/hide frames panel";
+                case "PreferencesToolButton":
+                    return "Project preferences";
                 case "BrushSizeSlider":
                     return "Brush size";
                 default:

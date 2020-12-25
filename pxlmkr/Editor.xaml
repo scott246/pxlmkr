@@ -20,33 +20,13 @@
 					<Separator/>
 					<MenuItem x:Name="ExitMenuItem" Header="Exit" Click="MenuItemClicked"/>
 				</MenuItem>
-				<MenuItem x:Name="EditMenu" Header="Edit">
-					<MenuItem x:Name="UndoMenuItem" Header="Undo" Click="MenuItemClicked"/>
-					<MenuItem x:Name="RedoMenuItem" Header="Redo" Click="MenuItemClicked"/>
-					<MenuItem x:Name="PropertiesMenuItem" Header="Properties" Click="MenuItemClicked"/>
-					<Separator/>
-					<MenuItem x:Name="FillMenuItem" Header="Fill" Click="MenuItemClicked"/>
-					<MenuItem x:Name="ReplaceColorMenuItem" Header="Replace Color" Click="MenuItemClicked"/>
-					<MenuItem x:Name="CloneMenuItem" Header="Clone" Click="MenuItemClicked"/>
-					<MenuItem x:Name="FlipMenu" Header="Flip">
-						<MenuItem x:Name="FlipVerticalMenuItem" Header="Vertical" Click="MenuItemClicked"/>
-						<MenuItem x:Name="FlipHorizontalMenuItem" Header="Horizontal" Click="MenuItemClicked"/>
-					</MenuItem>
-					<MenuItem x:Name="RotateMenu" Header="Rotate">
-						<MenuItem x:Name="Rotate90MenuItem" Header="90" Click="MenuItemClicked"/>
-						<MenuItem x:Name="Rotate180MenuItem" Header="180" Click="MenuItemClicked"/>
-						<MenuItem x:Name="Rotate270MenuItem" Header="270" Click="MenuItemClicked"/>
-					</MenuItem>
-					<MenuItem x:Name="CropMenuItem" Header="Crop" Click="MenuItemClicked"/>
-					<MenuItem x:Name="ClearMenuItem" Header="Clear" Click="MenuItemClicked"/>
-				</MenuItem>
 				<MenuItem x:Name="HelpMenu" Header="Help">
 					<MenuItem x:Name="HelpMenuItem" Header="Help" Click="MenuItemClicked"/>
 					<MenuItem x:Name="AboutMenuItem" Header="About" Click="MenuItemClicked"/>
 				</MenuItem>
 			</Menu>
 			<StackPanel x:Name="DetailsPanel" DockPanel.Dock="Right" Width="200" Background="{StaticResource ControlBackgroundColor}">
-				<Grid>
+				<Grid Margin="10">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*"/>
 						<ColumnDefinition Width="25"/>
@@ -58,12 +38,12 @@
 			<DockPanel x:Name="StatusPanel" DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ControlBackgroundColor}">
 				<Label x:Name="HelpTextLabel" Content="Help Text" DockPanel.Dock="Left" HorizontalAlignment="Left" Foreground="{StaticResource ControlForegroundColor}"/>
 				<Label x:Name="CursorPositionLabel" Content="1 : 1" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl"/>
-				<Label x:Name="PixelSizeLabel" Content="16px" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeftButtonDown="PixelSizeLabel_MouseLeftButtonDown" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
-				<Label x:Name="ProjectSizeLabel" Content="16 x 16" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseLeftButtonDown="ProjectSizeLabel_MouseLeftButtonDown" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
+				<Label x:Name="PixelSizeLabel" Content="16px" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
+				<Label x:Name="ProjectSizeLabel" Content="16 x 16" DockPanel.Dock="Right" HorizontalAlignment="Right" Width="50" HorizontalContentAlignment="Center" Foreground="{StaticResource ControlForegroundColor}" MouseEnter="DescribeControl" MouseLeave="ClearHelpText"/>
 			</DockPanel>
 			<StackPanel x:Name="ToolsPanel" DockPanel.Dock="Left" Orientation="Vertical" Width="50" Background="{StaticResource ControlBackgroundColor}">
 				<Rectangle Height="5"/>
-				<Button x:Name="PaintToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
+				<Button x:Name="PaintToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource AccentColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
 					<Image Source="/Resources/icons8_paint_brush_26px.png" />
 				</Button>
 				<Button x:Name="SelectToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
@@ -75,21 +55,25 @@
 				<Button x:Name="FillToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
 					<Image Source="/Resources/icons8_fill_color_26px.png" />
 				</Button>
-				<Button x:Name="EyedropperToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
-					<Image Source="/Resources/icons8_color_dropper_26px.png" />
-				</Button>
-				<Button x:Name="LineToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
-					<Image Source="/Resources/icons8_line_26px.png" />
-				</Button>
 				<Button x:Name="ShapeToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
 					<Image Source="/Resources/icons8_ellipse_26px.png" />
 				</Button>
-				<Button x:Name="TextToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
-					<Image Source="/Resources/icons8_type_26px.png" />
+				<Button x:Name="TransformToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
+					<Image Source="/Resources/icons8_drag_26px.png" />
 				</Button>
-				<Button x:Name="CropToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
-					<Image Source="/Resources/icons8_crop_26px.png" />
+				<Button x:Name="ShowHideLayersToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
+					<Image Source="/Resources/icons8_layers_26px.png" />
 				</Button>
+				<Button x:Name="ShowHideFramesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
+					<Image Source="/Resources/icons8_showing_video_frames_26px.png" />
+				</Button>
+				<Button x:Name="PreferencesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
+					<Image Source="/Resources/icons8_settings_26px.png" />
+				</Button>
+			</StackPanel>
+			<StackPanel x:Name="ToolsExtendedPanel" Visibility="Collapsed" DockPanel.Dock="Left" Orientation="Vertical" Width="50" Background="{StaticResource ControlBackgroundColor}">
+				<Rectangle Height="5"/>
+				
 			</StackPanel>
 			<Grid>
 				<Canvas x:Name="PixelCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10" Width="300" Height="300" Loaded="PixelCanvas_Loaded" MouseDown="PixelCanvas_MouseDown" MouseMove="PixelCanvas_MouseMove">
