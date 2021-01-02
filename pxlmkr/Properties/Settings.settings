@@ -1,7 +1,30 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="pxlmkr.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DefaultPixelCountHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="DefaultPixelCountWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="DefaultPixelSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="DefaultProjectHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">256</Value>
+    </Setting>
+    <Setting Name="DefaultProjectWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">256</Value>
+    </Setting>
+    <Setting Name="LMBAction" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Paint Primary Color</Value>
+    </Setting>
+    <Setting Name="MMBAction" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Pan</Value>
+    </Setting>
+    <Setting Name="RMBAction" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Paint Secondary Color</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

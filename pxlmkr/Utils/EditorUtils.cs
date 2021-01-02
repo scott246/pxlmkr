@@ -14,11 +14,13 @@ namespace pxlmkr.Utils
 			switch (name)
 			{
                 case "CursorPositionLabel":
-                    return "Cursor position (x : y)";
+                    return "(Horizontal cursor position) : (Vertical cursor position)";
                 case "PixelSizeLabel":
-                    return "Project pixel size (in screen pixels)";
+                    return "Width and height of each square";
                 case "ProjectSizeLabel":
-                    return "Project dimensions";
+                    return "(Number of squares per row) x (Number of squares per column)";
+                case "ProjectSizeRenderedLabel":
+                    return "(Width of rendered project) x (Height of rendered project)";
                 case "PaintToolButton":
                     return "Paint tool";
                 case "SelectToolButton":
@@ -38,7 +40,7 @@ namespace pxlmkr.Utils
                 case "PreferencesToolButton":
                     return "Project settings";
                 case "BrushSizeSlider":
-                    return "Brush size";
+                    return "Brush size in squares";
                 default:
                     return "";
             }
