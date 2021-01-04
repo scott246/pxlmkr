@@ -12,13 +12,16 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace pxlmkr.Dialogs
+namespace pxlmkr
 {
 	/// <summary>
 	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class Settings : Window
 	{
+		public int pixelCountX;
+		public int pixelCountY;
+		public int pixelSize;
 
 		public Settings()
 		{
@@ -29,6 +32,10 @@ namespace pxlmkr.Dialogs
 			PixelsPerRowTextBox.Text = Properties.Settings.Default.DefaultPixelCountWidth.ToString();
 			ProjectHeightTextBox.Text = Properties.Settings.Default.DefaultProjectHeight.ToString();
 			ProjectWidthTextBox.Text = Properties.Settings.Default.DefaultProjectWidth.ToString();
+
+			pixelCountX = int.Parse(PixelsPerRowTextBox.Text);
+			pixelCountY = int.Parse(PixelsPerColumnTextBox.Text);
+			pixelSize = int.Parse(PixelSizeTextBox.Text);
 		}
 
 		private bool ValidDimensionValue(string text)
@@ -38,21 +45,40 @@ namespace pxlmkr.Dialogs
 
 		private void SaveSettingsChanges_Click(object sender, RoutedEventArgs e)
 		{
+			int newPixelSize = int.Parse(PixelSizeTextBox.Text);
+			int newPixelsPerColumn = int.Parse(PixelsPerColumnTextBox.Text);
+			int newPixelsPerRow = int.Parse(PixelsPerRowTextBox.Text);
+			int newProjectHeight = int.Parse(ProjectHeightTextBox.Text);
+			int newProjectWidth = int.Parse(ProjectWidthTextBox.Text);
+
 			if (!ValidDimensionValue(PixelsPerRowTextBox.Text) || 
 				!ValidDimensionValue(PixelsPerColumnTextBox.Text) ||
 				!ValidDimensionValue(PixelSizeTextBox.Text) ||
 				!ValidDimensionValue(ProjectWidthTextBox.Text) ||
 				!ValidDimensionValue(ProjectHeightTextBox.Text))
 			{
-				MessageBox.Show("Invalid inputs for pixel or project dimensions");
+				MessageBox.Show("Invalid inputs for pixel or project dimensions", "Error", MessageBoxButton.OK);
 				return;
 			}
-			Properties.Settings.Default.DefaultPixelSize = int.Parse(PixelSizeTextBox.Text);
-			Properties.Settings.Default.DefaultPixelCountHeight = int.Parse(PixelsPerColumnTextBox.Text);
-			Properties.Settings.Default.DefaultPixelCountWidth = int.Parse(PixelsPerRowTextBox.Text);
-			Properties.Settings.Default.DefaultProjectHeight = int.Parse(ProjectHeightTextBox.Text);
-			Properties.Settings.Default.DefaultProjectWidth = int.Parse(ProjectWidthTextBox.Text);
+			if (newPixelsPerColumn < pixelCountY ||
+				newPixelsPerRow < pixelCountX)
+			{
+				MessageBoxResult r = 
+					MessageBox.Show("Reducing the pixel count may crop out part of the project. Are you sure you want to do this?", "Warning", MessageBoxButton.YesNo);
+				if (r == MessageBoxResult.No || r == MessageBoxResult.None)
+				{
+					return;
+				}
+			}
+			Properties.Settings.Default.DefaultPixelSize = newPixelSize;
+			Properties.Settings.Default.DefaultPixelCountHeight = newPixelsPerColumn;
+			Properties.Settings.Default.DefaultPixelCountWidth = newPixelsPerRow;
+			Properties.Settings.Default.DefaultProjectHeight = newProjectHeight;
+			Properties.Settings.Default.DefaultProjectWidth = newProjectWidth;
 			Properties.Settings.Default.Save();
+			pixelCountX = newPixelsPerRow;
+			pixelCountY = newPixelsPerColumn;
+			pixelSize = newPixelSize;
 			Close();
 		}
 
@@ -142,7 +168,8 @@ namespace pxlmkr.Dialogs
 					double.Parse(ProjectWidthTextBox.Text) / double.Parse(PixelSizeTextBox.Text);
 					PixelsPerRowTextBox.Text =
 						calculatedPixelsPerRow % 1 == 0 ? calculatedPixelsPerRow.ToString() : "";
-				}			}
+				}			
+			}
 		}
 	}
 }

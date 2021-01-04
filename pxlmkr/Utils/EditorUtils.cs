@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using pxlmkr.Dialogs;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Shapes;
 
 namespace pxlmkr.Utils
 {
@@ -14,9 +16,9 @@ namespace pxlmkr.Utils
 			switch (name)
 			{
                 case "CursorPositionLabel":
-                    return "(Horizontal cursor position) : (Vertical cursor position)";
+                    return "Cursor position (x : y)";
                 case "PixelSizeLabel":
-                    return "Width and height of each square";
+                    return "Width and height of a project pixel";
                 case "ProjectSizeLabel":
                     return "(Number of squares per row) x (Number of squares per column)";
                 case "ProjectSizeRenderedLabel":
@@ -37,10 +39,10 @@ namespace pxlmkr.Utils
                     return "Show/hide layer panel";
                 case "ShowHideFramesToolButton":
                     return "Show/hide frames panel";
-                case "PreferencesToolButton":
+                case "SettingsToolButton":
                     return "Project settings";
                 case "BrushSizeSlider":
-                    return "Brush size in squares";
+                    return "Brush size in project pixels";
                 default:
                     return "";
             }
@@ -66,11 +68,46 @@ namespace pxlmkr.Utils
                     break;
                 case "ShowHideFramesToolButton":
                     break;
-                case "PreferencesToolButton":
-                    new Settings().ShowDialog();
+                case "SettingsToolButton":
+                    OpenSettingsMenu();
                     break;
                 default:
                     break;
+            }
+        }
+
+        public static void OpenSettingsMenu()
+		{
+            Settings s = new Settings();
+            s.ShowDialog();
+            UpdateCanvasSize(s.pixelCountX, s.pixelCountY, s.pixelSize);
+		}
+
+        public static void UpdateCanvasSize(int newPixelCountX, int newPixelCountY, int newPixelSize)
+        {
+            Editor instance = Editor.editorInstance;
+            Canvas editorPixelCanvas = instance.PixelCanvas;
+            double originalProjectWidth = instance.canvasWidth;
+            double originalProjectHeight = instance.canvasHeight;
+            double newProjectWidth = newPixelCountX * newPixelSize;
+            double newProjectHeight = newPixelCountY * newPixelSize;
+            int originalPixelCountX = instance.cols;
+            int originalPixelCountY = instance.rows;
+            int originalPixelSize = instance.pixelSize;
+
+			editorPixelCanvas.Width = newProjectWidth;
+            editorPixelCanvas.Height = newProjectHeight;
+
+            foreach (UIElement element in editorPixelCanvas.Children)
+            {
+                if (element.GetType() == typeof(Line))
+                {
+
+                }
+                else if (element.GetType() == typeof(Rectangle))
+				{
+
+				}
             }
         }
     }

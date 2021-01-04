@@ -69,7 +69,7 @@
 				<Button x:Name="ShowHideFramesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl">
 					<Image Source="/Resources/icons8_showing_video_frames_26px.png" />
 				</Button>
-				<Button x:Name="PreferencesToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl" Click="ControlButtonClicked">
+				<Button x:Name="SettingsToolButton" Width="30" Height="30" Margin="5" Padding="5" Background="{StaticResource ControlBackgroundColor}" MouseLeave="ClearHelpText" MouseEnter="DescribeControl" Click="ControlButtonClicked">
 					<Image Source="/Resources/icons8_settings_26px.png" />
 				</Button>
 			</StackPanel>

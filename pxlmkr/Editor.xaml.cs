@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using pxlmkr.Dialogs;
 
 namespace pxlmkr
 {
@@ -22,26 +21,19 @@ namespace pxlmkr
 	/// </summary>
 	public partial class Editor : Window
 	{
-        int rows;
-        int cols;
-        double canvasHeight;
-        double canvasWidth;
-        double rowHeight;
-        double colWidth;
+        public static Editor editorInstance;
+        public int rows = 16;
+        public int cols = 16;
+        public int pixelSize = 16;
+        public double canvasHeight = 256;
+        public double canvasWidth = 256;
 
         public Editor()
 		{
 			InitializeComponent();
-		}
-
-        private void CalculateGridInfo()
-		{
-            rows = 16;
-            cols = 16;
-            canvasHeight = PixelCanvas.ActualHeight;
-            canvasWidth = PixelCanvas.ActualWidth;
-            rowHeight = canvasHeight / rows;
-            colWidth = canvasWidth / cols;
+            PixelCanvas.Width = canvasWidth;
+            PixelCanvas.Height = canvasHeight;
+            editorInstance = this;
 		}
 
         private void InitializeCanvasGridLines()
@@ -52,8 +44,8 @@ namespace pxlmkr
                 {
                     X1 = 0,
                     X2 = canvasWidth,
-                    Y1 = rowHeight * curRow,
-                    Y2 = rowHeight * curRow,
+                    Y1 = pixelSize * curRow,
+                    Y2 = pixelSize * curRow,
                     Stroke = Brushes.DarkGray,
                     StrokeThickness = 1
 				};
@@ -63,8 +55,8 @@ namespace pxlmkr
             {
                 Line gridLine = new Line
                 {
-                    X1 = colWidth * curCol,
-                    X2 = colWidth * curCol,
+                    X1 = pixelSize * curCol,
+                    X2 = pixelSize * curCol,
                     Y1 = 0,
                     Y2 = canvasHeight,
                     Stroke = Brushes.DarkGray,
@@ -77,10 +69,10 @@ namespace pxlmkr
         private void PaintCurrentPixel()
 		{
             Point mousePos = Mouse.GetPosition(PixelCanvas);
-            int rowPos = (int)(mousePos.X / rowHeight);
-            int colPos = (int)(mousePos.Y / colWidth);
-            double pixelTopPos = colPos * colWidth;
-            double pixelLeftPos = rowPos * rowHeight;
+            int rowPos = (int)(mousePos.X / pixelSize);
+            int colPos = (int)(mousePos.Y / pixelSize);
+            double pixelTopPos = colPos * pixelSize;
+            double pixelLeftPos = rowPos * pixelSize;
 
             // paint if LMB down
             if (Mouse.LeftButton == MouseButtonState.Pressed)
@@ -94,8 +86,8 @@ namespace pxlmkr
                 {
                     Rectangle pixelToPaint = new Rectangle
                     {
-                        Width = colWidth,
-                        Height = rowHeight,
+                        Width = pixelSize,
+                        Height = pixelSize,
                         Fill = new SolidColorBrush(Colors.Black)
                     };
                     Canvas.SetLeft(pixelToPaint, pixelLeftPos);
@@ -115,7 +107,6 @@ namespace pxlmkr
 
 		private void PixelCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-            CalculateGridInfo();
             UpdateHelpText("");
             InitializeCanvasGridLines();
         }
@@ -129,8 +120,8 @@ namespace pxlmkr
         {
             // update cursor position
             Point mousePos = Mouse.GetPosition(PixelCanvas);
-            int rowPos = (int)(mousePos.X / rowHeight);
-            int colPos = (int)(mousePos.Y / colWidth);
+            int rowPos = (int)(mousePos.X / pixelSize);
+            int colPos = (int)(mousePos.Y / pixelSize);
             if (rowPos > rows) rowPos = rows;
             if (colPos > cols) colPos = cols;
             CursorPositionLabel.Content = (rowPos + 1) + " : " + (colPos + 1);
@@ -174,7 +165,7 @@ namespace pxlmkr
                 case "ExportMenuItem":
                     break;
                 case "SettingsMenuItem":
-                    new Settings().ShowDialog();
+                    EditorUtils.OpenSettingsMenu();
                     break;
                 case "ExitMenuItem":
                     Application.Current.Shutdown();
