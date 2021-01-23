@@ -59,7 +59,10 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\Layer.cs" />
+    <Compile Include="Utils\Pixel.cs" />
     <Compile Include="Utils\EditorUtils.cs" />
+    <Compile Include="Utils\Project.cs" />
     <Page Include="Editor.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

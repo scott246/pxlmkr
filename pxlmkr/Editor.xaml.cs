@@ -21,6 +21,7 @@ namespace pxlmkr
 	/// </summary>
 	public partial class Editor : Window
 	{
+        public static Project project;
         public static Editor editorInstance;
         public int rows = 16;
         public int cols = 16;
@@ -34,6 +35,8 @@ namespace pxlmkr
             PixelCanvas.Width = canvasWidth;
             PixelCanvas.Height = canvasHeight;
             editorInstance = this;
+            project = new Project();
+            project.AddLayer(rows, cols);
 		}
 
         private void InitializeCanvasGridLines()

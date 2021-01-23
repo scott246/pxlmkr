@@ -82,41 +82,5 @@ namespace pxlmkr.Properties {
                 this["DefaultProjectWidth"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Paint Primary Color")]
-        public string LMBAction {
-            get {
-                return ((string)(this["LMBAction"]));
-            }
-            set {
-                this["LMBAction"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Pan")]
-        public string MMBAction {
-            get {
-                return ((string)(this["MMBAction"]));
-            }
-            set {
-                this["MMBAction"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Paint Secondary Color")]
-        public string RMBAction {
-            get {
-                return ((string)(this["RMBAction"]));
-            }
-            set {
-                this["RMBAction"] = value;
-            }
-        }
     }
 }
