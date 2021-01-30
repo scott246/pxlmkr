@@ -21,7 +21,9 @@ namespace pxlmkr
 	/// </summary>
 	public partial class Editor : Window
 	{
-        public static Project project;
+        static Project project;
+        public int currentLayer = 0;
+        public SolidColorBrush currentColorBrush = new SolidColorBrush(Colors.Black);
         public static Editor editorInstance;
         public int rows = 16;
         public int cols = 16;
@@ -83,7 +85,9 @@ namespace pxlmkr
                 if (Mouse.DirectlyOver.GetType() == typeof(Rectangle))
                 {
                     Rectangle paintedPixel = (Rectangle)Mouse.DirectlyOver;
-                    paintedPixel.Fill = new SolidColorBrush(Colors.Red);
+                    paintedPixel.Fill = currentColorBrush;
+                    project.GetLayerAt(currentLayer).SetPixelAt(
+                        rowPos, colPos, new Pixel(currentColorBrush.Color));
                 }
                 else
                 {
@@ -95,6 +99,8 @@ namespace pxlmkr
                     };
                     Canvas.SetLeft(pixelToPaint, pixelLeftPos);
                     Canvas.SetTop(pixelToPaint, pixelTopPos);
+                    project.GetLayerAt(currentLayer).SetPixelAt(
+                        rowPos, colPos, new Pixel(currentColorBrush.Color));
                     PixelCanvas.Children.Add(pixelToPaint);
                 }
             }
@@ -103,6 +109,8 @@ namespace pxlmkr
             {
                 if (Mouse.DirectlyOver.GetType() == typeof(Rectangle))
                 {
+                    project.GetLayerAt(currentLayer).SetPixelAt(
+                        rowPos, colPos, null);
                     PixelCanvas.Children.Remove((UIElement)Mouse.DirectlyOver);
                 }
             }

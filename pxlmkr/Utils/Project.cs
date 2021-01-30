@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pxlmkr.Utils
 {
-	public class Project
+	class Project
 	{
 		private List<Layer> layers = new List<Layer>();
 
@@ -18,6 +18,11 @@ namespace pxlmkr.Utils
 		public void RemoveLayer(int layerNumber)
 		{
 			layers.RemoveAt(layerNumber);
+		}
+
+		public Layer GetLayerAt(int layerNumber)
+		{
+			return layers[layerNumber];
 		}
 
 		public int GetLayerCount()

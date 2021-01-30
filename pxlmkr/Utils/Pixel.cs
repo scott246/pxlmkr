@@ -9,28 +9,11 @@ namespace pxlmkr.Utils
 {
 	class Pixel
 	{
-		private int x;
-		private int y;
 		private Color color = Colors.Transparent;
 
-		public int GetX()
+		public Pixel(Color color)
 		{
-			return x;
-		}
-
-		public void SetX(int x)
-		{
-			this.x = x;
-		}
-
-		public int GetY()
-		{
-			return y;
-		}
-
-		public void SetY(int y)
-		{
-			this.y = y;
+			this.color = color;
 		}
 
 		public Color GetColor()
