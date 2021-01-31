@@ -131,11 +131,11 @@ namespace pxlmkr
         {
             // update cursor position
             Point mousePos = Mouse.GetPosition(PixelCanvas);
-            int rowPos = (int)(mousePos.X / pixelSize);
-            int colPos = (int)(mousePos.Y / pixelSize);
+            int rowPos = (int)(mousePos.X / pixelSize) + 1;
+            int colPos = (int)(mousePos.Y / pixelSize) + 1;
             if (rowPos > rows) rowPos = rows;
             if (colPos > cols) colPos = cols;
-            CursorPositionLabel.Content = (rowPos + 1) + " : " + (colPos + 1);
+            CursorPositionLabel.Content = rowPos + " : " + colPos;
 
             PaintCurrentPixel();
         }
